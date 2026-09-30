@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d02hib5eyxy2m"]
+
+[ext_resource type="Script" uid="uid://dwu8olll0k0th" path="res://Scripts/Trap/saw.gd" id="1_8p0nf"]
+[ext_resource type="PackedScene" uid="uid://bb240r7y4ijsy" path="res://Scenes/Components/hitbox_component.tscn" id="1_a8ydm"]
+[ext_resource type="Texture2D" uid="uid://mikc0b4mpf71" path="res://Assets/Sprite/Trap/Saw/saw_whole.png" id="2_8p0nf"]
+
+[node name="Saw" type="AnimatableBody2D" unique_id=1386301474]
+light_mask = 2
+visibility_layer = 4
+script = ExtResource("1_8p0nf")
+
+[node name="HitboxComponent" parent="." unique_id=404187416 instance=ExtResource("1_a8ydm")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1666416784]
+texture = ExtResource("2_8p0nf")

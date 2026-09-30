@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bjt8ogryccaju"]
+
+[ext_resource type="PackedScene" uid="uid://bjnqem0c8dnl5" path="res://Scenes/Player/player.tscn" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://d02hib5eyxy2m" path="res://Scenes/Trap/saw.tscn" id="2_go701"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yreic"]
+size = Vector2(408, 93)
+
+[node name="World" type="Node2D" unique_id=1214851238]
+
+[node name="Player" parent="." unique_id=1574514256 instance=ExtResource("1_a02cp")]
+top_level = true
+position = Vector2(500, 94)
+
+[node name="Node2D" type="StaticBody2D" parent="." unique_id=1666757249]
+position = Vector2(292, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D" unique_id=1207696151]
+position = Vector2(207, 45)
+shape = SubResource("RectangleShape2D_yreic")
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=869739531]
+offset_right = 412.0
+offset_bottom = 91.0
+
+[node name="Saw" parent="." unique_id=37637177 instance=ExtResource("2_go701")]
+light_mask = 1
+visibility_layer = 1
+position = Vector2(370, 0)
