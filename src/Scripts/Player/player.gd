@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 	else:
 			if player_animation.animation != "idle":
 				_set_player_animation()
-
 	_move_with_inputs(delta)
 
 func _move_with_inputs(delta : float) -> void: 

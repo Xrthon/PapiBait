@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bfnrq2n88m2sh" path="res://Assets/Sprite/Player/character-spritesheet.png" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://ciucyud8lqlrh" path="res://Scenes/Components/hurtbox_component.tscn" id="3_xpcdj"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmfp"]
+size = Vector2(32, 56)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_enij7"]
 atlas = ExtResource("1_uvnfx")
 region = Rect2(0, 1280, 64, 64)
@@ -293,18 +296,15 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmfp"]
-size = Vector2(32, 56)
-
 [node name="Player" type="CharacterBody2D" unique_id=1574514256]
 script = ExtResource("1_a3d8c")
-
-[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=1413788294]
-sprite_frames = SubResource("SpriteFrames_fpbgb")
-animation = &"walk"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=397073542]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ogmfp")
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=1413788294]
+sprite_frames = SubResource("SpriteFrames_fpbgb")
+animation = &"walk"
 
 [node name="HurtboxComponent" parent="." unique_id=1601021910 instance=ExtResource("3_xpcdj")]
