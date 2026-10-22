@@ -12,6 +12,10 @@ func _input(event: InputEvent) -> void:
 func handle_inputs(input_event: InputEvent) -> void :
 	player.direction = Input.get_axis("left", "right")
 	
+	if input_event.is_action_pressed("attack") and player.is_on_floor():
+		Transitioned.emit(self, "PlayerAttack")
+		return
+		
 	if input_event.is_action_pressed("up") and player.is_on_floor():
 		Transitioned.emit(self, "PlayerJump")
 		return

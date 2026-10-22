@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://baffvkwakrq0h"]
+
+[ext_resource type="Texture2D" uid="uid://gqoypxa8tyvj" path="res://Assets/Sprite/Background/Sky/Clouds 7/1.png" id="1_e8qd5"]
+[ext_resource type="Texture2D" uid="uid://dgfbfg2ufhrw7" path="res://Assets/Sprite/Background/Sky/Clouds 7/2.png" id="2_b55cd"]
+[ext_resource type="Texture2D" uid="uid://d0citahv406wm" path="res://Assets/Sprite/Background/Sky/Clouds 7/3.png" id="3_xwhdp"]
+[ext_resource type="Texture2D" uid="uid://4t3dryfn0t3c" path="res://Assets/Sprite/Background/Sky/Clouds 7/4.png" id="4_7wtlt"]
+
+[node name="background" type="Node2D" unique_id=1025724583]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1052788329]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(1156, 0)
+
+[node name="Ciel" type="TextureRect" parent="Parallax2D" unique_id=1145192706]
+offset_right = 1156.0
+offset_bottom = 664.0
+texture = ExtResource("1_e8qd5")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=133042355]
+scroll_scale = Vector2(0.01, 0)
+repeat_size = Vector2(1156, 0)
+autoscroll = Vector2(4, 0)
+
+[node name="Ciel2" type="TextureRect" parent="Parallax2D2" unique_id=865035615]
+offset_right = 1156.0
+offset_bottom = 664.0
+texture = ExtResource("2_b55cd")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=2071260224]
+scroll_scale = Vector2(0.45, 0)
+repeat_size = Vector2(1156, 0)
+autoscroll = Vector2(4, 0)
+
+[node name="Nuage1" type="TextureRect" parent="Parallax2D3" unique_id=143415470]
+offset_right = 1156.0
+offset_bottom = 664.0
+texture = ExtResource("3_xwhdp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=806648680]
+scroll_scale = Vector2(0.45, 0)
+repeat_size = Vector2(1156, 0)
+autoscroll = Vector2(8, 0)
+
+[node name="NUage2" type="TextureRect" parent="Parallax2D4" unique_id=1303223321]
+offset_right = 1156.0
+offset_bottom = 664.0
+texture = ExtResource("4_7wtlt")
