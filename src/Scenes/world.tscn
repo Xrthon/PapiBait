@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjnqem0c8dnl5" path="res://Scenes/Player/player.tscn" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://baffvkwakrq0h" path="res://Scenes/Background/background.tscn" id="1_go701"]
+[ext_resource type="PackedScene" uid="uid://d02hib5eyxy2m" path="res://Scenes/Trap/saw.tscn" id="3_5a7ea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yreic"]
 size = Vector2(2612, 93)
@@ -26,3 +27,6 @@ offset_left = -54.0
 offset_top = -87.0
 offset_right = 2561.0
 offset_bottom = 4.0
+
+[node name="Saw" parent="." unique_id=1386301474 instance=ExtResource("3_5a7ea")]
+position = Vector2(752, 149)

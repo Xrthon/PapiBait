@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://p7lbr3r77kxu" path="res://Scripts/Player/player_jump.gd" id="6_jlvik"]
 [ext_resource type="Script" uid="uid://clwfh057wvsr0" path="res://Scripts/Player/player_run.gd" id="7_gk6dx"]
 [ext_resource type="Script" uid="uid://b7nnvoglyhymx" path="res://Scripts/Player/player_attack.gd" id="8_jlvik"]
+[ext_resource type="PackedScene" uid="uid://cr7cg347pktxa" path="res://Scenes/Components/health_component.tscn" id="9_gk6dx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmfp"]
 size = Vector2(32, 56)
@@ -301,6 +302,10 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fpbgb"]
+radius = 15.0
+height = 58.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1574514256]
 script = ExtResource("1_a3d8c")
 
@@ -312,7 +317,12 @@ shape = SubResource("RectangleShape2D_ogmfp")
 sprite_frames = SubResource("SpriteFrames_fpbgb")
 animation = &"Attack"
 
-[node name="HurtboxComponent" parent="." unique_id=1601021910 instance=ExtResource("3_xpcdj")]
+[node name="HurtboxComponent" parent="." unique_id=1601021910 node_paths=PackedStringArray("health_component") instance=ExtResource("3_xpcdj")]
+health_component = NodePath("../HealthComponent")
+
+[node name="Box" type="CollisionShape2D" parent="HurtboxComponent" unique_id=2130773646]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_fpbgb")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1681904181 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_mtuoh")
@@ -335,3 +345,5 @@ script = ExtResource("8_jlvik")
 player = NodePath("../..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1798850052]
+
+[node name="HealthComponent" parent="." unique_id=1953680565 instance=ExtResource("9_gk6dx")]

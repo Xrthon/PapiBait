@@ -4,16 +4,20 @@ extends CharacterBody2D
  
 #Variable en attente du chargement de scene 
 @onready  var player_animation: AnimatedSprite2D = $Animation
+@onready var health_component: HealthComponent = $HealthComponent
 
-const MAX_SPEED = 200.0
-const JUMP_VELOCITY = -300.0
-const ACCEL = 1
-const GROUND_ACCEL = 0.25
-const AIR_ACCEL = 0.1
-
+const MAX_SPEED :float = 200.0
+const JUMP_VELOCITY :float = -300.0
+const ACCEL :float = 1
+const GROUND_ACCEL :float = 0.25
+const AIR_ACCEL :float = 0.1
 var direction: float = 0.0
 var facing_right: bool = true
 
+func _ready() -> void:
+	health_component.healed.connect(_on_healed)
+func _on_healed():
+	pass
 func _physics_process(delta: float) -> void:
 	_move_with_inputs(delta)
 
