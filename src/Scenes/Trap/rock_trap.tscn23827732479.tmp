@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dkrdtly2bd7ev"]
+
+[ext_resource type="Script" uid="uid://nstlfe7nk1mn" path="res://Scripts/Trap/rock_trap.gd" id="1_7dlbf"]
+[ext_resource type="Texture2D" uid="uid://bekv2r4d1bru7" path="res://Assets/Sprite/Trap/Rock/pieces/gibbet_no_rope.png" id="1_j0nc1"]
+[ext_resource type="Texture2D" uid="uid://cn2q20sd5v7qd" path="res://Assets/Sprite/Trap/Rock/pieces/rope_windings.png" id="2_7dlbf"]
+[ext_resource type="Texture2D" uid="uid://7apsudkb4drx" path="res://Assets/Sprite/Trap/Rock/pieces/short_rope_iec.png" id="3_qabb1"]
+[ext_resource type="Texture2D" uid="uid://dr8n1vs7l8la1" path="res://Assets/Sprite/Trap/Rock/pieces/rock_hanging.png" id="4_ovmpb"]
+[ext_resource type="Script" uid="uid://djpcu7i1iie62" path="res://Scripts/Trap/rock.gd" id="5_efodk"]
+[ext_resource type="Script" uid="uid://c8jou028ltvp6" path="res://Scripts/Components/animations/swing_component.gd" id="6_qabb1"]
+[ext_resource type="PackedScene" uid="uid://bb240r7y4ijsy" path="res://Scenes/Components/hitbox_component.tscn" id="7_avhte"]
+[ext_resource type="Script" uid="uid://dw1qr4nw5nc45" path="res://Scripts/Components/animations/throw_rock_component.gd" id="7_ovmpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_643i7"]
+size = Vector2(90, 70.5)
+
+[node name="RockTrap" type="Node2D" unique_id=192803914]
+script = ExtResource("1_7dlbf")
+
+[node name="Pole" type="Sprite2D" parent="." unique_id=1170247412]
+position = Vector2(0, 0.9999962)
+scale = Vector2(0.099762455, 0.100985214)
+texture = ExtResource("1_j0nc1")
+
+[node name="RopeNode" type="Sprite2D" parent="." unique_id=169172778]
+position = Vector2(-62.3125, -65.8125)
+scale = Vector2(0.11729074, 0.09375)
+texture = ExtResource("2_7dlbf")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=511953033]
+position = Vector2(-59, -57)
+
+[node name="RopeHead" type="Sprite2D" parent="Pivot" unique_id=2105802985]
+position = Vector2(0, 25)
+scale = Vector2(0.114285715, 0.17314488)
+texture = ExtResource("3_qabb1")
+
+[node name="PivotRope" type="Node2D" parent="Pivot" unique_id=1193008058]
+position = Vector2(0, 49)
+
+[node name="Rope" type="Sprite2D" parent="Pivot/PivotRope" unique_id=989203277]
+position = Vector2(0, 20.000008)
+scale = Vector2(0.11428572, 0.14575972)
+texture = ExtResource("3_qabb1")
+
+[node name="PivotRock" type="Node2D" parent="Pivot/PivotRope" unique_id=872543601]
+position = Vector2(0, 42)
+
+[node name="Rock" type="Area2D" parent="Pivot/PivotRope/PivotRock" unique_id=749609883]
+position = Vector2(1, 38)
+script = ExtResource("5_efodk")
+
+[node name="Sprite2d" type="Sprite2D" parent="Pivot/PivotRope/PivotRock/Rock" unique_id=208091541]
+scale = Vector2(0.09916313, 0.10182926)
+texture = ExtResource("4_ovmpb")
+
+[node name="HitboxComponent" parent="Pivot/PivotRope/PivotRock/Rock" unique_id=404187416 instance=ExtResource("7_avhte")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/PivotRope/PivotRock/Rock/HitboxComponent" unique_id=831070548]
+position = Vector2(-1, 3.25)
+shape = SubResource("RectangleShape2D_643i7")
+
+[node name="SwingComponent" type="Node" parent="." unique_id=1744199793 node_paths=PackedStringArray("pivots")]
+script = ExtResource("6_qabb1")
+pivots = [NodePath("../Pivot"), NodePath("../Pivot/PivotRope"), NodePath("../Pivot/PivotRope/PivotRock")]
+angles_deg = Array[float]([20.0, 12.0, 6.0])
+
+[node name="ThrowRockComponent" type="Node" parent="." unique_id=111122656 node_paths=PackedStringArray("rock", "swing")]
+script = ExtResource("7_ovmpb")
+rock = NodePath("../Pivot/PivotRope/PivotRock/Rock")
+swing = NodePath("../SwingComponent")

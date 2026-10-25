@@ -10,6 +10,7 @@ radius = 134.01492
 [node name="Saw" type="AnimatableBody2D" unique_id=1386301474]
 light_mask = 2
 visibility_layer = 4
+sync_to_physics = false
 script = ExtResource("1_8p0nf")
 
 [node name="HitboxComponent" parent="." unique_id=404187416 instance=ExtResource("1_a8ydm")]
@@ -19,3 +20,6 @@ shape = SubResource("CircleShape2D_yreic")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1666416784]
 texture = ExtResource("2_8p0nf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1598221408]
+shape = SubResource("CircleShape2D_yreic")

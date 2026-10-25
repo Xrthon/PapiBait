@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b078aop0ukhix"]
+
+[ext_resource type="Script" uid="uid://chkh2g6ood6sm" path="res://Scripts/Utils/trigger.gd" id="1_qw1yo"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fo5ed"]
+a = Vector2(0, 99)
+b = Vector2(-1, -59)
+
+[node name="Trigger" type="Area2D" unique_id=160722176]
+script = ExtResource("1_qw1yo")
+one_shot = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10053146]
+shape = SubResource("SegmentShape2D_fo5ed")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

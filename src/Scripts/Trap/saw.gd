@@ -1,3 +1,4 @@
+class_name Saw
 extends AnimatableBody2D
 
 
@@ -5,6 +6,7 @@ extends AnimatableBody2D
 @export var duration := 6.0
 
 @onready var anim_body : AnimatableBody2D = $Saw
+@export var move_offset := Vector2(0, 200)  # déplacement quand activée
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,8 +17,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func start_tween(): 
-	var tween = get_tree().create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS) as Tween
-	tween.set_loops().set_parallel(true)
-	tween.tween_property(anim_body, "position", offset, duration / 2)
-	#tween.tween_property(anim_body, "position", Vector2.ZERO, duration)
+func activate() -> void:
+	for child in get_children():
+		if child.has_method("activate"):
+			child.activate()
+	#if _tween:
+		#_tween.kill()
+	#_tween = create_tween().set_parallel(true)
+	#_tween.tween_property(self, "position", position + move_offset, duration) \
+		#.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	#_tween.tween_property(self, "rotation", rotation + TAU * 3, duration)
