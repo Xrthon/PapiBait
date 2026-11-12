@@ -1,5 +1,9 @@
 extends Node2D
-class_name GameManager
+
+
+@export var world_map := "res://scenes/Levels/World_map/world_map.tscn"
+var current_level_uid := ""
+var completed_levels: Array[String] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

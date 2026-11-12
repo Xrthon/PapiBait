@@ -17,17 +17,13 @@ signal died()
 ## Emitted when health has been restored after death.
 signal revived()
 
-## The maximum allowed health.
 var max_life :float = 5.0
 
-## The current health.
 @onready var health := max_life:
 	set(health_): 
 		health = clampf(health_, 0.0, max_life)
 		changed.emit(health_)
 		
-## Apply an amount of healing.  If [i]will_revive[/i] is true, the health can be
-## from a "dead" state.
 func heal(amount: float, will_revive := false) -> void:
 	if is_dead() and not will_revive: return
 

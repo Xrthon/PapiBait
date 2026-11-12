@@ -2,10 +2,13 @@
 class_name MoveComponent
 extends Node
 
+
+#path2D pour que la scie suis le chemin tracer
+
 @export var target: Node2D
-@export var distance := 200.0        # en pixels, vers la droite (négatif = vers la gauche)
-@export var duration := 1.0          # durée d'un aller
-@export var pause := 0.0             # pause à chaque extrémité
+@export var distance := 200.0        
+@export var duration := 1.0          
+@export var pause := 0.0            
 @export var auto_start := false
 
 var _tween: Tween

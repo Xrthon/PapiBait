@@ -2,10 +2,10 @@
 class_name SwingComponent
 extends Node
 
-@export var pivots: Array[Node2D] = []        # Pivot, PivotRope, PivotRock
-@export var angles_deg: Array[float] = [30.0, 15.0, 8.0]
-@export var period := 1.6                     # aller-retour complet
-@export var phase_step := 0.1                 # retard entre chaque pivot
+@export var pivots: Array[Node2D] = []        
+@export var angles_deg: Array[float] = [30.0, 15.0, 8.0,25.0]
+@export var period := 1.6                     
+@export var phase_step := 0.1                 
 @export var auto_start := true
 
 var _active := false
