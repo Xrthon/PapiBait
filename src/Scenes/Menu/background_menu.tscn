@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c2vh7rvrx1l2q"]
+
+[ext_resource type="Script" uid="uid://crv0u8p1wwqhk" path="res://Scripts/Menu/background_menu.gd" id="1_rlx2w"]
+[ext_resource type="Script" uid="uid://dnbubqwsqv1vv" path="res://Scripts/Menu/Background/stars.gd" id="2_enool"]
+[ext_resource type="PackedScene" uid="uid://bkeupreuh2173" path="res://Scenes/Menu/star.tscn" id="3_j3q4t"]
+[ext_resource type="Texture2D" uid="uid://booejeg5k1isa" path="res://Assets/Menu/Background/sun_menu.png" id="4_d8hgq"]
+[ext_resource type="Texture2D" uid="uid://ccxmwonrmh73n" path="res://Assets/Menu/Background/moon.png" id="5_dnb1d"]
+[ext_resource type="Texture2D" uid="uid://5lbkir2k6c8k" path="res://Assets/Menu/main_menu_background.png" id="6_d8hgq"]
+
+[node name="BackgroundMenu" type="Control" unique_id=1269530978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rlx2w")
+orbit_width = 600
+orbit_height = 250
+cycle_duration = 20.0
+
+[node name="Sky" type="ColorRect" parent="." unique_id=998637934]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98039216, 0.92941177, 0.8509804, 1)
+
+[node name="OrbitCenter" type="Marker2D" parent="." unique_id=1310942498]
+position = Vector2(576, 346)
+
+[node name="Stars" type="Node2D" parent="." unique_id=1656502098]
+script = ExtResource("2_enool")
+star_scene = ExtResource("3_j3q4t")
+spawn_area_size = Vector2(1300, 250)
+
+[node name="Sun" type="Sprite2D" parent="." unique_id=1962131042]
+scale = Vector2(3, 3)
+texture = ExtResource("4_d8hgq")
+
+[node name="Moon" type="Sprite2D" parent="." unique_id=1402922361]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_dnb1d")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1498689722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_d8hgq")
+expand_mode = 1

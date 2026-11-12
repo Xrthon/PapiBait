@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bkeupreuh2173"]
+
+[ext_resource type="Texture2D" uid="uid://di22ujbsi1vl6" path="res://Ressources/new_gradient_texture_2d.tres" id="1_74r3w"]
+[ext_resource type="Script" uid="uid://culfrwm1dhphn" path="res://Scripts/Menu/Background/star.gd" id="2_33qnl"]
+
+[node name="Star" type="Sprite2D" unique_id=1826033819]
+position = Vector2(309, 177)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_74r3w")
+script = ExtResource("2_33qnl")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://f5jknf1hhas6"]
+
+[ext_resource type="Texture2D" uid="uid://1bl4e2uyjvfp" path="res://Assets/Menu/Button/bouton_normal.png" id="1_0eyit"]
+[ext_resource type="Texture2D" uid="uid://wtsbjyc120q6" path="res://Assets/Menu/Button/bouton_pressed.png" id="2_w48jw"]
+[ext_resource type="Texture2D" uid="uid://b55ygsem22r1k" path="res://Assets/Menu/Button/bouton_hover.png" id="3_ei6w5"]
+[ext_resource type="Texture2D" uid="uid://bc8muca0vnn1b" path="res://Assets/Menu/Button/bouton_disabled.png" id="4_qh85r"]
+[ext_resource type="Script" uid="uid://db2tus1sk588p" path="res://Scripts/Menu/Button/pause_bouton.gd" id="5_w48jw"]
+
+[node name="PauseBouton" type="TextureButton" unique_id=1781382763]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 272.0
+offset_right = -384.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_0eyit")
+texture_pressed = ExtResource("2_w48jw")
+texture_hover = ExtResource("3_ei6w5")
+texture_disabled = ExtResource("4_qh85r")
+texture_focused = ExtResource("3_ei6w5")
+stretch_mode = 0
+script = ExtResource("5_w48jw")
+
+[node name="CenterContainer" type="MarginContainer" parent="." unique_id=1117941993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=1892718958]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 41

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://j55t0fct4qqv"]
+
+[ext_resource type="Script" uid="uid://cjswbq5waycl7" path="res://Scripts/Menu/hud.gd" id="1_qyl80"]
+[ext_resource type="PackedScene" uid="uid://dgc8wn1u3ri5p" path="res://Scenes/Menu/pause_menu.tscn" id="2_pmejq"]
+[ext_resource type="PackedScene" uid="uid://b3ydajdp03nh5" path="res://Scenes/Menu/main_menu.tscn" id="2_qyl80"]
+[ext_resource type="PackedScene" uid="uid://cpum2yjm7kr2a" path="res://Scenes/Menu/options_menu.tscn" id="3_pmejq"]
+
+[node name="HUD" type="CanvasLayer" unique_id=237533356]
+process_mode = 3
+script = ExtResource("1_qyl80")
+
+[node name="PauseMenu" parent="." unique_id=99429519 instance=ExtResource("2_pmejq")]
+
+[node name="MainMenu" parent="." unique_id=774765284 instance=ExtResource("2_qyl80")]
+
+[node name="OptionsMenu" parent="." unique_id=630313812 instance=ExtResource("3_pmejq")]

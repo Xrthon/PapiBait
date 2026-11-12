@@ -15,6 +15,11 @@ run/main_scene="uid://bjt8ogryccaju"
 config/features=PackedStringArray("4.7")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+GameManager="*uid://n33nuux8er6d"
+HUD="*uid://j55t0fct4qqv"
+
 [input]
 
 left={

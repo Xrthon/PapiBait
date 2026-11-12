@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dgc8wn1u3ri5p"]
+
+[ext_resource type="Script" uid="uid://bea4eljcjjpbs" path="res://Scripts/Menu/pause_menu.gd" id="1_6pfc5"]
+[ext_resource type="PackedScene" uid="uid://f5jknf1hhas6" path="res://Scenes/Menu/Bouton/pause_bouton.tscn" id="2_6pfc5"]
+[ext_resource type="Texture2D" uid="uid://c5c04xip6uif6" path="res://Assets/Menu/deco_top_1.png" id="2_mux1j"]
+[ext_resource type="Texture2D" uid="uid://pqjaiaakk7e8" path="res://Assets/Menu/deco_bot_1.png" id="4_0km3y"]
+
+[node name="PauseMenu" type="Control" unique_id=99429519]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6pfc5")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2127039388]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer" unique_id=814457572]
+layout_mode = 2
+
+[node name="DecorationTop" type="TextureRect" parent="PanelContainer/VBoxContainer2" unique_id=143257771]
+layout_mode = 2
+texture = ExtResource("2_mux1j")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer2" unique_id=859486860]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer2/CenterContainer" unique_id=2052181398]
+layout_mode = 2
+
+[node name="Resume" parent="PanelContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1781382763 instance=ExtResource("2_6pfc5")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Reprendre"
+
+[node name="Options" parent="PanelContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1944126771 instance=ExtResource("2_6pfc5")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Options"
+
+[node name="MainMenu" parent="PanelContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=317948102 instance=ExtResource("2_6pfc5")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Menu Principale"
+
+[node name="DecorationBot" type="TextureRect" parent="PanelContainer/VBoxContainer2" unique_id=549687536]
+layout_mode = 2
+texture = ExtResource("4_0km3y")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer2/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer2/CenterContainer/VBoxContainer/Options" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer2/CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_button_pressed"]

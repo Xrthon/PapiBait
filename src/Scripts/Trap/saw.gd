@@ -5,7 +5,6 @@ extends AnimatableBody2D
 @export var offset := Vector2(350, 0)
 @export var duration := 6.0
 
-@onready var anim_body : AnimatableBody2D = $Saw
 @export var move_offset := Vector2(0, 200)  # déplacement quand activée
 
 # Called when the node enters the scene tree for the first time.

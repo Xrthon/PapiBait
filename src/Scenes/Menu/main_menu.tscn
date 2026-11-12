@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://b3ydajdp03nh5"]
+
+[ext_resource type="Script" uid="uid://c8uixmel5181b" path="res://Scripts/Menu/main_menu.gd" id="1_tself"]
+[ext_resource type="PackedScene" uid="uid://c2vh7rvrx1l2q" path="res://Scenes/Menu/background_menu.tscn" id="2_tself"]
+[ext_resource type="PackedScene" uid="uid://f5jknf1hhas6" path="res://Scenes/Menu/Bouton/pause_bouton.tscn" id="3_7jtkx"]
+
+[node name="MainMenu" type="Control" unique_id=774765284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tself")
+
+[node name="BackgroundMenu" parent="." unique_id=1269530978 instance=ExtResource("2_tself")]
+layout_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=274722595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=35742620]
+layout_mode = 2
+
+[node name="Start" parent="CenterContainer/VBoxContainer" unique_id=1781382763 instance=ExtResource("3_7jtkx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Start"
+
+[node name="Options" parent="CenterContainer/VBoxContainer" unique_id=2040875812 instance=ExtResource("3_7jtkx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Options"
+
+[node name="Quit" parent="CenterContainer/VBoxContainer" unique_id=701147159 instance=ExtResource("3_7jtkx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cpum2yjm7kr2a"]
+
+[ext_resource type="Script" uid="uid://chd4bcdu2p4dj" path="res://Scripts/Menu/options_menu.gd" id="1_3i43w"]
+
+[node name="OptionsMenu" type="Control" unique_id=630313812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3i43w")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2077491603]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -248.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1718345081]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer" unique_id=621698566]
+layout_mode = 2
+text = "Parametres"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=131187524]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=916953664]
+layout_mode = 2
+text = "Volumes:           "
+
+[node name="VolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1040964907]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="FullscreenCheck" type="CheckBox" parent="PanelContainer/VBoxContainer" unique_id=1841050227]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Plein"
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=107845151]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Retour"
