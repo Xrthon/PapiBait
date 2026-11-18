@@ -8,6 +8,9 @@ extends Node
 @export var ropes_to_hide:  Array[Node2D] = []      
 @export var ropes_broken_to_show:  Array[Node2D] = []      
 
+func _ready() -> void:
+	for rope in ropes_broken_to_show: 
+		rope.visible = false
 
 var _thrown := false
 
@@ -17,13 +20,11 @@ func activate() -> void:
 	_thrown = true
 	rock.reparent(get_tree().current_scene)   
 	rock.launch(initial_velocity)
-	if swing:
-		swing.deactivate()
 	if ropes_to_hide:
 		for rope in ropes_to_hide: 
-			pass
-			#rope.hide()
+			rope.visible = false
 		for rope in ropes_broken_to_show:
+			rope.visible = true
+			
 			pass
-			#rope.show()
 		pass

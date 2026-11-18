@@ -40,7 +40,10 @@ func heal(amount: float, will_revive := false) -> void:
 ## Apply a full amount of healing.
 func heal_fully() -> void:
 	heal(max_life)
-
+func insta_kill() -> void: 
+	changed.emit(0)
+	died.emit()
+	print("MORT")
 ## Apply an amount of damage.
 func damage(amount: float) -> void:
 	var old_heath := health

@@ -9,9 +9,10 @@
 [ext_resource type="Script" uid="uid://clwfh057wvsr0" path="res://Scripts/Player/player_run.gd" id="7_gk6dx"]
 [ext_resource type="Script" uid="uid://b7nnvoglyhymx" path="res://Scripts/Player/player_attack.gd" id="8_jlvik"]
 [ext_resource type="PackedScene" uid="uid://cr7cg347pktxa" path="res://Scenes/Components/health_component.tscn" id="9_gk6dx"]
+[ext_resource type="Script" uid="uid://j6dxww8iirdk" path="res://Scripts/Player/player_died.gd" id="9_jhyir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmfp"]
-size = Vector2(32, 56)
+size = Vector2(30, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_enij7"]
 atlas = ExtResource("1_uvnfx")
@@ -342,6 +343,10 @@ player = NodePath("../..")
 
 [node name="PlayerAttack" type="Node" parent="StateMachine" unique_id=954468665 node_paths=PackedStringArray("player")]
 script = ExtResource("8_jlvik")
+player = NodePath("../..")
+
+[node name="PlayerDied" type="Node" parent="StateMachine" unique_id=1157371820 node_paths=PackedStringArray("player")]
+script = ExtResource("9_jhyir")
 player = NodePath("../..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1798850052]

@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		triggered.emit()
-		print("le joueur est:",  body.global_position)
 		if saw: 
 			saw.activate()
 		if rock_trap: 

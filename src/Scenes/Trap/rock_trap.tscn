@@ -18,13 +18,13 @@ size = Vector2(90, 70.5)
 script = ExtResource("1_7dlbf")
 
 [node name="Pole" type="Sprite2D" parent="." unique_id=1170247412]
-position = Vector2(0, 0.9999962)
-scale = Vector2(0.099762455, 0.100985214)
+position = Vector2(0, 28)
+scale = Vector2(0.099762455, 0.1362069)
 texture = ExtResource("1_j0nc1")
 
 [node name="RopeNode" type="Sprite2D" parent="." unique_id=169172778]
-position = Vector2(-62.3125, -65.8125)
-scale = Vector2(0.11729074, 0.09375)
+position = Vector2(-62.3125, -65)
+scale = Vector2(0.11729074, 0.123076946)
 texture = ExtResource("2_7dlbf")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=511953033]
@@ -61,7 +61,6 @@ position = Vector2(-1, 3.25)
 shape = SubResource("RectangleShape2D_643i7")
 
 [node name="PivotBreakenRope" type="Node2D" parent="." unique_id=1600420698]
-visible = false
 position = Vector2(-60, -59)
 
 [node name="BrokenRope" type="Sprite2D" parent="PivotBreakenRope" unique_id=1380272534]
@@ -72,7 +71,7 @@ texture = ExtResource("10_8awdw")
 [node name="SwingComponent" type="Node" parent="." unique_id=1744199793 node_paths=PackedStringArray("pivots")]
 script = ExtResource("6_qabb1")
 pivots = [NodePath("../Pivot"), NodePath("../Pivot/PivotRope"), NodePath("../Pivot/PivotRope/PivotRock"), NodePath("../PivotBreakenRope")]
-angles_deg = Array[float]([20.0, 12.0, 6.0])
+angles_deg = Array[float]([20.0, 12.0, 6.0, 4.0])
 
 [node name="ThrowRockComponent" type="Node" parent="." unique_id=111122656 node_paths=PackedStringArray("rock", "swing", "ropes_to_hide", "ropes_broken_to_show")]
 script = ExtResource("7_ovmpb")
