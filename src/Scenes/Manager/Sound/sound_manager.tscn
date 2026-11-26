@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cw4mrafioo3u8"]
+
+[ext_resource type="Script" uid="uid://dwyxvjobb7o67" path="res://Scripts/Manager/sound_manager.gd" id="1_25tnw"]
+[ext_resource type="AudioStream" uid="uid://wn61fnmknv6b" path="res://Sounds/Musics/511198__theojt__egypt-music.mp3" id="2_2smo5"]
+
+[node name="SoundManager" type="Node" unique_id=747248629]
+script = ExtResource("1_25tnw")
+
+[node name="LevelBackground" type="AudioStreamPlayer2D" parent="." unique_id=332538431]
+stream = ExtResource("2_2smo5")

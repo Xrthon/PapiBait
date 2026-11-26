@@ -9,6 +9,9 @@ func enter() -> void:
 	player.get_animated_sprite().play("Jump")
 
 func physics_update(delta: float) -> void:
+	if player.health_component.is_dead(): 
+		Transitioned.emit(self, "PlayerDied")
+		return
 	
 	player.direction= Input.get_axis("left", "right")
 	player.velocity.x = lerp(player.velocity.x, player.MAX_SPEED * player.direction, player.AIR_ACCEL)

@@ -3,7 +3,7 @@ class_name HitboxComponent
 
 signal hit(hurtbox: HurtboxComponent, amount: float)
 
-var damage_amount := 1
+@export var damage_amount := 5
 
 func _on_hurtbox_entered(area: Area2D) -> void:
 	if area is HurtboxComponent:

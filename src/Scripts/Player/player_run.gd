@@ -21,6 +21,9 @@ func handle_inputs(input_event: InputEvent) -> void :
 		return
 
 func update(delta : float) -> void:
+	if player.health_component.is_dead(): 
+		Transitioned.emit(self, "PlayerDied")
+		return
 	if not anim_player :
 		anim_player = player.get_animated_sprite()
 

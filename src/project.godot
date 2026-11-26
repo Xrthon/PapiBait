@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PapiBait"
-run/main_scene="uid://bjt8ogryccaju"
+run/main_scene="uid://hqgsf3gk1utd"
 config/features=PackedStringArray("4.7")
 config/icon="res://Assets/icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://Assets/icon.svg"
 
 GameManager="*uid://n33nuux8er6d"
 HUD="*uid://j55t0fct4qqv"
+SoundManager="*uid://cw4mrafioo3u8"
 
 [input]
 

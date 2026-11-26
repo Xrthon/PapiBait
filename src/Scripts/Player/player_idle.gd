@@ -11,6 +11,7 @@ func _input(event: InputEvent) -> void:
 	handle_inputs(event)
 
 func handle_inputs(input_event: InputEvent) -> void :
+
 	if input_event.is_action_pressed("up") and player.is_on_floor():
 		Transitioned.emit(self, "PlayerJump")
 		return
@@ -23,6 +24,9 @@ func handle_inputs(input_event: InputEvent) -> void :
 		Transitioned.emit(self, "PlayerRun")
 
 func update(delta: float) -> void:
+	if player.health_component.is_dead(): 
+		Transitioned.emit(self, "PlayerDied")
+		return
 	if not anim_player :
 		anim_player = player.get_animated_sprite()
 

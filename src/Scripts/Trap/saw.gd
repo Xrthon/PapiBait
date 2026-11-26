@@ -20,9 +20,3 @@ func activate() -> void:
 	for child in get_children():
 		if child.has_method("activate"):
 			child.activate()
-	#if _tween:
-		#_tween.kill()
-	#_tween = create_tween().set_parallel(true)
-	#_tween.tween_property(self, "position", position + move_offset, duration) \
-		#.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	#_tween.tween_property(self, "rotation", rotation + TAU * 3, duration)

@@ -6,6 +6,7 @@ var anim_player : AnimatedSprite2D
 
 func enter():
 	anim_player = player.get_animated_sprite()
+	anim_player.play("Died")
 
 func _input(event: InputEvent) -> void:
 	handle_inputs(event)
@@ -17,8 +18,8 @@ func update(delta: float) -> void:
 		anim_player = player.get_animated_sprite()
 
 func physics_update(delta: float) -> void:
-	if not anim_player : return
-	anim_player.play("Died")
+	if anim_player.frame  == 5 :
+		anim_player.pause()
 
 func exit() -> void:
 	pass

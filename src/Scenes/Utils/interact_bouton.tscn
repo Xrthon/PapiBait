@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dfe3ioax5udfn"]
+
+[ext_resource type="Script" uid="uid://dbngx5oqiscj3" path="res://interact_bouton.gd" id="1_x8d1k"]
+[ext_resource type="Texture2D" uid="uid://dmkxf06t8cj1h" path="res://Assets/Sprite/Bouton/bouton_releve.png" id="2_0p1io"]
+[ext_resource type="Texture2D" uid="uid://yx425ifwqv2j" path="res://Assets/Sprite/Bouton/bouton_enfonce.png" id="3_x8d1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yreic"]
+size = Vector2(91, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpbgb"]
+size = Vector2(83, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p1io"]
+size = Vector2(98, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2v3d"]
+size = Vector2(78, 8)
+
+[node name="interact_bouton" type="Node2D" unique_id=1199069780]
+script = ExtResource("1_x8d1k")
+
+[node name="BoutonUp" type="RigidBody2D" parent="." unique_id=2029944733]
+
+[node name="Bouton" type="Sprite2D" parent="BoutonUp" unique_id=508575242]
+texture = ExtResource("2_0p1io")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoutonUp" unique_id=40044773]
+position = Vector2(2.5, 9.75)
+shape = SubResource("RectangleShape2D_yreic")
+
+[node name="btn_up_area" type="Area2D" parent="BoutonUp" unique_id=1019598139]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoutonUp/btn_up_area" unique_id=2129848994]
+position = Vector2(1.5, 10)
+shape = SubResource("RectangleShape2D_fpbgb")
+
+[node name="BoutonDown" type="RigidBody2D" parent="." unique_id=1372601946]
+
+[node name="Sprite2D" type="Sprite2D" parent="BoutonDown" unique_id=1236104023]
+texture = ExtResource("3_x8d1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoutonDown" unique_id=1041946029]
+position = Vector2(4, 13.5)
+shape = SubResource("RectangleShape2D_0p1io")
+
+[node name="btn_down_area" type="Area2D" parent="BoutonDown" unique_id=917223424]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoutonDown/btn_down_area" unique_id=1496768466]
+position = Vector2(1, 13)
+shape = SubResource("RectangleShape2D_t2v3d")
+
+[connection signal="area_entered" from="BoutonUp/btn_up_area" to="." method="_on_btn_up_area_area_entered"]
+[connection signal="area_entered" from="BoutonDown/btn_down_area" to="." method="_on_btn_down_area_area_entered"]

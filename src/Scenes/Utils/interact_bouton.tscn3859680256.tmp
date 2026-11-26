@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dfe3ioax5udfn"]
+
+[ext_resource type="Script" uid="uid://dbngx5oqiscj3" path="res://interact_bouton.gd" id="1_x8d1k"]
+[ext_resource type="Texture2D" uid="uid://dmkxf06t8cj1h" path="res://Assets/Sprite/Bouton/bouton_releve.png" id="2_0p1io"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yreic"]
+size = Vector2(84, 19)
+
+[node name="interact_bouton" type="RigidBody2D" unique_id=367484077]
+script = ExtResource("1_x8d1k")
+
+[node name="Bouton" type="Sprite2D" parent="." unique_id=508575242]
+texture = ExtResource("2_0p1io")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=40044773]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_yreic")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1019598139]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=1357324153]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_yreic")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

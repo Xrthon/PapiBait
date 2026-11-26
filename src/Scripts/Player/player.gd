@@ -19,26 +19,40 @@ func _ready() -> void:
 func _on_healed():
 	pass
 func _physics_process(delta: float) -> void:
-	_move_with_inputs(delta)
+	if not health_component.is_dead():
+		_move_with_inputs(delta)
 	if _step_on_special_tile("deadly"): 
 		health_component.insta_kill();
 
-func _step_on_special_tile(custom_data_name: String) -> bool: 
-	if  is_on_floor():
-		var collision = get_slide_collision(0)
-		if collision:
-			var tilemap := collision.get_collider()
-			var hit_pos = collision.get_position() - collision.get_normal() * 2.0
-			var cell = tilemap.local_to_map(tilemap.to_local(hit_pos))
-			var data = tilemap.get_cell_tile_data(cell)
-			
-			if data and  tilemap.tile_set.has_custom_data_layer_by_name(custom_data_name):
-				if data.get_custom_data(custom_data_name): 
-					return true
-	return false 
+func _step_on_special_tile(custom_data_name: String) -> bool:
+	if not is_on_floor():
+		return false
+		
+	for i in get_slide_collision_count():
+		var collision := get_slide_collision(i)
+
+		if collision.get_normal().dot(up_direction) < 0.7:
+			continue
+
+		var tilemap := collision.get_collider() as TileMapLayer
+		if tilemap == null:
+			continue
+
+		if not tilemap.tile_set.has_custom_data_layer_by_name(custom_data_name):
+			continue
+
+		var hit_pos := collision.get_position() - collision.get_normal() * 2.0
+		var cell := tilemap.local_to_map(tilemap.to_local(hit_pos))
+		var data := tilemap.get_cell_tile_data(cell)
+
+		if data and data.get_custom_data(custom_data_name):
+			return true
+
+	return false
 func _move_with_inputs(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		var current_gravity := get_gravity() if velocity.y < 0.0 else get_gravity() *1.5
+		velocity += current_gravity * delta
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
