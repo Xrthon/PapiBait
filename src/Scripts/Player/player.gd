@@ -11,18 +11,37 @@ const JUMP_VELOCITY :float = -300.0
 const ACCEL :float = 1
 const GROUND_ACCEL :float = 0.25
 const AIR_ACCEL :float = 0.1
+const DEATH_FRICTION :float = 800.0
 var direction: float = 0.0
 var facing_right: bool = true
 
 func _ready() -> void:
-	health_component.healed.connect(_on_healed)
-func _on_healed():
-	pass
+	health_component.died.connect(GameManager.player_died.emit)
+	health_component.changed.connect(_on_health_changed)
+	_on_health_changed(health_component.health)
+
+func _on_health_changed(_new_health : float) -> void:
+	GameManager.notify_player_health_changed(health_component.health, health_component.max_life)
+
 func _physics_process(delta: float) -> void:
-	if not health_component.is_dead():
-		_move_with_inputs(delta)
-	if _step_on_special_tile("deadly"): 
-		health_component.insta_kill();
+	_apply_gravity(delta)
+	if health_component.is_dead():
+		velocity.x = move_toward(velocity.x, 0.0, DEATH_FRICTION * delta)
+	else:
+		_move_with_inputs()
+	move_and_slide()
+	if _step_on_special_tile("deadly"):
+		die()
+
+func die() -> void:
+	if health_component.is_dead():
+		return
+	health_component.insta_kill()
+
+func _apply_gravity(delta: float) -> void:
+	if not is_on_floor():
+		var current_gravity := get_gravity() if velocity.y < 0.0 else get_gravity() *1.5
+		velocity += current_gravity * delta
 
 func _step_on_special_tile(custom_data_name: String) -> bool:
 	if not is_on_floor():
@@ -49,11 +68,7 @@ func _step_on_special_tile(custom_data_name: String) -> bool:
 			return true
 
 	return false
-func _move_with_inputs(delta: float) -> void:
-	if not is_on_floor():
-		var current_gravity := get_gravity() if velocity.y < 0.0 else get_gravity() *1.5
-		velocity += current_gravity * delta
-
+func _move_with_inputs() -> void:
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
@@ -66,7 +81,6 @@ func _move_with_inputs(delta: float) -> void:
 		facing_right = false
 		
 	get_animated_sprite().flip_h = not facing_right
-	move_and_slide()
 
 func get_animated_sprite() -> AnimatedSprite2D:
 	return $Animation

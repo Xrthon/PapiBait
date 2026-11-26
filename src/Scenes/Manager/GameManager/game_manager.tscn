@@ -4,3 +4,4 @@
 
 [node name="GameManager" type="Node" unique_id=906043408]
 script = ExtResource("1_mtm67")
+levels = Array[String](["uid://hqgsf3gk1utd"])

@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Menu/debug_overlay.gd" id="1_debug_overlay"]
+[ext_resource type="Theme" path="res://Ressources/options_theme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_debug"]
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 12.0
+bg_color = Color(0.1, 0.06, 0.04, 0.8)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.89, 0.69, 0.31, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="DebugOverlay" type="PanelContainer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_top = 96.0
+offset_right = -24.0
+offset_bottom = 252.0
+grow_horizontal = 0
+mouse_filter = 2
+theme = ExtResource("2_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_debug")
+script = ExtResource("1_debug_overlay")
+
+[node name="Rows" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 4
+columns = 2
+
+[node name="FpsName" type="Label" parent="Rows"]
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+text = "FPS"
+
+[node name="FpsValue" type="Label" parent="Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+theme_override_colors/font_color = Color(0.43, 0.78, 0.95, 1)
+text = "-"
+horizontal_alignment = 2
+
+[node name="MemoryCurrentName" type="Label" parent="Rows"]
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+text = "Mémoire"
+
+[node name="MemoryCurrentValue" type="Label" parent="Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+theme_override_colors/font_color = Color(0.43, 0.78, 0.95, 1)
+text = "-"
+horizontal_alignment = 2
+
+[node name="MemoryMaxName" type="Label" parent="Rows"]
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+text = "Mémoire max"
+
+[node name="MemoryMaxValue" type="Label" parent="Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+theme_override_colors/font_color = Color(0.43, 0.78, 0.95, 1)
+text = "-"
+horizontal_alignment = 2
+
+[node name="MemoryMinName" type="Label" parent="Rows"]
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+text = "Mémoire min"
+
+[node name="MemoryMinValue" type="Label" parent="Rows"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_type_variation = &"DebugLabel"
+theme_override_colors/font_color = Color(0.43, 0.78, 0.95, 1)
+text = "-"
+horizontal_alignment = 2

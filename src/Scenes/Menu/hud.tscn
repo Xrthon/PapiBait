@@ -4,13 +4,69 @@
 [ext_resource type="PackedScene" uid="uid://dgc8wn1u3ri5p" path="res://Scenes/Menu/pause_menu.tscn" id="2_pmejq"]
 [ext_resource type="PackedScene" uid="uid://b3ydajdp03nh5" path="res://Scenes/Menu/main_menu.tscn" id="2_qyl80"]
 [ext_resource type="PackedScene" uid="uid://cpum2yjm7kr2a" path="res://Scenes/Menu/options_menu.tscn" id="3_pmejq"]
+[ext_resource type="Theme" path="res://Ressources/options_theme.tres" id="4_theme"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/debug_overlay.tscn" id="5_debug_overlay"]
+[ext_resource type="Texture2D" path="res://Assets/Menu/HUD/life_ankh_full.png" id="6_life_full"]
+[ext_resource type="Texture2D" path="res://Assets/Menu/HUD/life_ankh_empty.png" id="7_life_empty"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/victory_transition.tscn" id="8_victory_transition"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_top_bar"]
+content_margin_left = 32.0
+content_margin_top = 10.0
+content_margin_right = 32.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1, 0.06, 0.04, 0.6)
+border_width_bottom = 3
+border_color = Color(0.89, 0.69, 0.31, 1)
 
 [node name="HUD" type="CanvasLayer" unique_id=237533356]
+layer = 2
 process_mode = 3
 script = ExtResource("1_qyl80")
+full_life_texture = ExtResource("6_life_full")
+empty_life_texture = ExtResource("7_life_empty")
+
+[node name="LevelInfo" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = ExtResource("4_theme")
+theme_override_styles/panel = SubResource("StyleBoxFlat_top_bar")
+
+[node name="Row" type="HBoxContainer" parent="LevelInfo"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+
+[node name="LevelLabel" type="Label" parent="LevelInfo/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+text = "Niveau 1"
+
+[node name="HealthIcons" type="HBoxContainer" parent="LevelInfo/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="TimerLabel" type="Label" parent="LevelInfo/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+text = "00:00.00"
+horizontal_alignment = 2
+
+[node name="VictoryTransition" parent="." instance=ExtResource("8_victory_transition")]
 
 [node name="PauseMenu" parent="." unique_id=99429519 instance=ExtResource("2_pmejq")]
 
 [node name="MainMenu" parent="." unique_id=774765284 instance=ExtResource("2_qyl80")]
 
 [node name="OptionsMenu" parent="." unique_id=630313812 instance=ExtResource("3_pmejq")]
+
+[node name="DebugOverlay" parent="." instance=ExtResource("5_debug_overlay")]

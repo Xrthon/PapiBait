@@ -1,7 +1,7 @@
 # Godot 4.3+ generated cache and build directories.
 .godot/
 /android/
-
+/_source_audio
 /src/.godotlauncher
 # Imported translations generated from CSV files.
 *.translation

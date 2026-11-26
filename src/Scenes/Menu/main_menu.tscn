@@ -39,6 +39,16 @@ unique_name_in_owner = true
 layout_mode = 2
 button_title = "Options"
 
+[node name="Controls" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_7jtkx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Contrôles"
+
+[node name="Leaderboard" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_7jtkx")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Records"
+
 [node name="Quit" parent="CenterContainer/VBoxContainer" unique_id=701147159 instance=ExtResource("3_7jtkx")]
 unique_name_in_owner = true
 layout_mode = 2
@@ -46,4 +56,6 @@ button_title = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

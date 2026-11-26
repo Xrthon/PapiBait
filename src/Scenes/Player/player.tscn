@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b7nnvoglyhymx" path="res://Scripts/Player/player_attack.gd" id="8_jlvik"]
 [ext_resource type="PackedScene" uid="uid://cr7cg347pktxa" path="res://Scenes/Components/health_component.tscn" id="9_gk6dx"]
 [ext_resource type="Script" uid="uid://j6dxww8iirdk" path="res://Scripts/Player/player_died.gd" id="9_jhyir"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/death_effect_component.tscn" id="10_death_effect"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmfp"]
 size = Vector2(24, 53)
@@ -354,7 +355,7 @@ animations = [{
 radius = 15.0
 height = 58.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1574514256]
+[node name="Player" type="CharacterBody2D" unique_id=1574514256 groups=["player"]]
 script = ExtResource("1_a3d8c")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=397073542]
@@ -399,3 +400,6 @@ player = NodePath("../..")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1798850052]
 
 [node name="HealthComponent" parent="." unique_id=1953680565 instance=ExtResource("9_gk6dx")]
+
+[node name="DeathEffectComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("10_death_effect")]
+health_component = NodePath("../HealthComponent")

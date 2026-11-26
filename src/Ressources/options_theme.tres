@@ -1,0 +1,89 @@
+[gd_resource type="Theme" format=3 uid="uid://df3ekchqeb7i3"]
+
+[ext_resource type="Texture2D" uid="uid://dnqgbw8258ojx" path="res://Assets/Menu/Options/slider_track.png" id="1_track"]
+[ext_resource type="Texture2D" uid="uid://cxr3nc6m065ad" path="res://Assets/Menu/Options/slider_fill.png" id="2_fill"]
+[ext_resource type="Texture2D" uid="uid://bgvq4y64wciwi" path="res://Assets/Menu/Options/slider_grabber.png" id="3_grabber"]
+[ext_resource type="Texture2D" uid="uid://bk5shf8us6m03" path="res://Assets/Menu/Options/slider_grabber_hover.png" id="4_grabber_hover"]
+[ext_resource type="Texture2D" uid="uid://ilhdkokog7uv" path="res://Assets/Menu/Options/checkbox_checked.png" id="5_checked"]
+[ext_resource type="Texture2D" uid="uid://fc6io6d8fbax" path="res://Assets/Menu/Options/checkbox_unchecked.png" id="6_unchecked"]
+[ext_resource type="Texture2D" uid="uid://b106l23tkmgpw" path="res://Assets/Menu/Options/panel_background.png" id="7_panel"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_none"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fill"]
+texture = ExtResource("2_fill")
+texture_margin_left = 14.0
+texture_margin_top = 13.0
+texture_margin_right = 14.0
+texture_margin_bottom = 13.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_track"]
+texture = ExtResource("1_track")
+texture_margin_left = 14.0
+texture_margin_top = 13.0
+texture_margin_right = 14.0
+texture_margin_bottom = 13.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+content_margin_left = 72.0
+content_margin_top = 48.0
+content_margin_right = 72.0
+content_margin_bottom = 48.0
+texture = ExtResource("7_panel")
+texture_margin_left = 28.0
+texture_margin_top = 28.0
+texture_margin_right = 28.0
+texture_margin_bottom = 28.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_backdrop"]
+bg_color = Color(0.08, 0.04, 0.12, 0.55)
+
+[resource]
+CheckBox/colors/font_color = Color(0.99, 0.88, 0.6, 1)
+CheckBox/colors/font_focus_color = Color(1, 0.95, 0.75, 1)
+CheckBox/colors/font_hover_color = Color(1, 0.95, 0.75, 1)
+CheckBox/colors/font_hover_pressed_color = Color(1, 0.95, 0.75, 1)
+CheckBox/colors/font_outline_color = Color(0.27, 0.16, 0.08, 1)
+CheckBox/colors/font_pressed_color = Color(0.99, 0.88, 0.6, 1)
+CheckBox/constants/h_separation = 16
+CheckBox/constants/outline_size = 8
+CheckBox/font_sizes/font_size = 32
+CheckBox/icons/checked = ExtResource("5_checked")
+CheckBox/icons/unchecked = ExtResource("6_unchecked")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_none")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_none")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_none")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_none")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_none")
+ControlKeyLabel/base_type = &"Label"
+ControlKeyLabel/colors/font_color = Color(0.43, 0.78, 0.95, 1)
+DebugLabel/base_type = &"Label"
+DebugLabel/constants/outline_size = 4
+DebugLabel/font_sizes/font_size = 22
+GameOverLabel/base_type = &"Label"
+GameOverLabel/colors/font_color = Color(0.86, 0.16, 0.1, 1)
+GameOverLabel/colors/font_outline_color = Color(0.16, 0.06, 0.03, 1)
+GameOverLabel/constants/outline_size = 20
+GameOverLabel/font_sizes/font_size = 128
+HSlider/icons/grabber = ExtResource("3_grabber")
+HSlider/icons/grabber_highlight = ExtResource("4_grabber_hover")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_fill")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_fill")
+HSlider/styles/slider = SubResource("StyleBoxTexture_track")
+Label/colors/font_color = Color(0.99, 0.88, 0.6, 1)
+Label/colors/font_outline_color = Color(0.27, 0.16, 0.08, 1)
+Label/constants/outline_size = 8
+Label/font_sizes/font_size = 32
+LeaderboardLevelLabel/base_type = &"Label"
+LeaderboardLevelLabel/colors/font_color = Color(0.43, 0.78, 0.95, 1)
+LeaderboardLevelLabel/font_sizes/font_size = 38
+OptionsPanel/base_type = &"PanelContainer"
+OptionsPanel/styles/panel = SubResource("StyleBoxTexture_panel")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_backdrop")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 56
+VictoryLabel/base_type = &"Label"
+VictoryLabel/colors/font_color = Color(1, 0.84, 0.4, 1)
+VictoryLabel/colors/font_outline_color = Color(0.2, 0.1, 0.03, 1)
+VictoryLabel/constants/outline_size = 18
+VictoryLabel/font_sizes/font_size = 96

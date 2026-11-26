@@ -42,11 +42,11 @@ func heal_fully() -> void:
 	heal(max_life)
 func insta_kill() -> void: 
 	damage(max_life)
-	if is_dead():
-		GameManager.player_died.emit()
 
 ## Apply an amount of damage.
 func damage(amount: float) -> void:
+	if is_dead():
+		return
 	var old_heath := health
 
 	health -= amount

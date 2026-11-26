@@ -1,0 +1,84 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Menu/leaderboard_menu.gd" id="1_leaderboard"]
+[ext_resource type="Theme" path="res://Ressources/options_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" path="res://Assets/Menu/main_menu_background.png" id="3_background"]
+[ext_resource type="Texture2D" uid="uid://c5c04xip6uif6" path="res://Assets/Menu/deco_top_1.png" id="4_deco_top"]
+[ext_resource type="Texture2D" uid="uid://pqjaiaakk7e8" path="res://Assets/Menu/deco_bot_1.png" id="5_deco_bot"]
+[ext_resource type="PackedScene" uid="uid://f5jknf1hhas6" path="res://Scenes/Menu/Bouton/pause_bouton.tscn" id="6_bouton"]
+
+[node name="LeaderboardMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_leaderboard")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.55, 0.45, 0.4, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DecorationTop" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_deco_top")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeaderboardPanel" type="PanelContainer" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_type_variation = &"OptionsPanel"
+
+[node name="Content" type="VBoxContainer" parent="VBoxContainer/CenterContainer/LeaderboardPanel"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="VBoxContainer/CenterContainer/LeaderboardPanel/Content"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Records"
+horizontal_alignment = 1
+
+[node name="RecordsScroll" type="ScrollContainer" parent="VBoxContainer/CenterContainer/LeaderboardPanel/Content"]
+custom_minimum_size = Vector2(760, 360)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="RecordsList" type="VBoxContainer" parent="VBoxContainer/CenterContainer/LeaderboardPanel/Content/RecordsScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="BackButton" parent="VBoxContainer/CenterContainer/LeaderboardPanel/Content" instance=ExtResource("6_bouton")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+button_title = "Retour"
+
+[node name="DecorationBot" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_deco_bot")

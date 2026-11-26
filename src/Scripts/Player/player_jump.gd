@@ -8,9 +8,9 @@ func enter() -> void:
 		player.velocity.y = player.JUMP_VELOCITY
 	player.get_animated_sprite().play("Jump")
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if player.health_component.is_dead(): 
-		Transitioned.emit(self, "PlayerDied")
+		transition_to("PlayerDied")
 		return
 	
 	player.direction= Input.get_axis("left", "right")
@@ -21,14 +21,14 @@ func physics_update(delta: float) -> void:
 
 	if player.is_on_floor() and player.velocity.y >= 0:
 		if player.direction != 0:
-			Transitioned.emit(self, "PlayerRun")
+			transition_to("PlayerRun")
 		else:
-			Transitioned.emit(self, "PlayerIdle")
+			transition_to("PlayerIdle")
 
-func handle_inputs(input_event: InputEvent) -> void:
+func handle_inputs(_input_event: InputEvent) -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 
 func exit() -> void:

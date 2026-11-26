@@ -13,24 +13,24 @@ func _input(event: InputEvent) -> void:
 func handle_inputs(input_event: InputEvent) -> void :
 
 	if input_event.is_action_pressed("up") and player.is_on_floor():
-		Transitioned.emit(self, "PlayerJump")
+		transition_to("PlayerJump")
 		return
 	if input_event.is_action_pressed("attack") and player.is_on_floor():
-		Transitioned.emit(self, "PlayerAttack")
+		transition_to("PlayerAttack")
 		return
 	
 	player.direction = Input.get_axis("left", "right")
 	if (player.direction != 0):
-		Transitioned.emit(self, "PlayerRun")
+		transition_to("PlayerRun")
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if player.health_component.is_dead(): 
-		Transitioned.emit(self, "PlayerDied")
+		transition_to("PlayerDied")
 		return
 	if not anim_player :
 		anim_player = player.get_animated_sprite()
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if not anim_player : return
 	anim_player.play("Idle")
 

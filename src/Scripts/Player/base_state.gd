@@ -9,3 +9,6 @@ signal Transitioned
 @abstract func physics_update(delta: float) -> void
 @abstract func enter() -> void
 @abstract func exit() -> void
+
+func transition_to(new_state_name : String) -> void:
+	Transitioned.emit(self, new_state_name)

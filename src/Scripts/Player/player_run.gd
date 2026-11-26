@@ -13,16 +13,16 @@ func handle_inputs(input_event: InputEvent) -> void :
 	player.direction = Input.get_axis("left", "right")
 	
 	if input_event.is_action_pressed("attack") and player.is_on_floor():
-		Transitioned.emit(self, "PlayerAttack")
+		transition_to("PlayerAttack")
 		return
 		
 	if input_event.is_action_pressed("up") and player.is_on_floor():
-		Transitioned.emit(self, "PlayerJump")
+		transition_to("PlayerJump")
 		return
 
-func update(delta : float) -> void:
+func update(_delta : float) -> void:
 	if player.health_component.is_dead(): 
-		Transitioned.emit(self, "PlayerDied")
+		transition_to("PlayerDied")
 		return
 	if not anim_player :
 		anim_player = player.get_animated_sprite()
@@ -33,11 +33,11 @@ func update(delta : float) -> void:
 		player.velocity.x = lerp(player.velocity.x, 0.0, 0.2)
 
 	if (player.velocity.x == 0) :
-		Transitioned.emit(self, "PlayerIdle")
+		transition_to("PlayerIdle")
 
 	player.facing_right = player.direction > 0
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if (player.velocity.x != 0):
 		player.facing_right = player.velocity.x > 0
 		if not anim_player : return

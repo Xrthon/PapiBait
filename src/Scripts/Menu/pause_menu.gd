@@ -18,7 +18,7 @@ func close_menu() -> void:
 	hide()
 
 func _on_resume_button_pressed() -> void:
-	grab_focus()
+	get_viewport().gui_release_focus()
 	close_menu()
 
 func _on_options_button_pressed() -> void:

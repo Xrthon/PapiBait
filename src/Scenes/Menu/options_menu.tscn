@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cpum2yjm7kr2a"]
 
 [ext_resource type="Script" uid="uid://chd4bcdu2p4dj" path="res://Scripts/Menu/options_menu.gd" id="1_3i43w"]
+[ext_resource type="Theme" path="res://Ressources/options_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://c5c04xip6uif6" path="res://Assets/Menu/deco_top_1.png" id="3_deco_top"]
+[ext_resource type="Texture2D" uid="uid://pqjaiaakk7e8" path="res://Assets/Menu/deco_bot_1.png" id="4_deco_bot"]
+[ext_resource type="PackedScene" uid="uid://f5jknf1hhas6" path="res://Scenes/Menu/Bouton/pause_bouton.tscn" id="5_bouton"]
 
 [node name="OptionsMenu" type="Control" unique_id=630313812]
 layout_mode = 3
@@ -9,45 +13,121 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_theme")
 script = ExtResource("1_3i43w")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2077491603]
-custom_minimum_size = Vector2(0, 500)
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -248.0
-offset_bottom = 252.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1718345081]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer" unique_id=621698566]
+[node name="DecorationTop" type="TextureRect" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Parametres"
+mouse_filter = 2
+texture = ExtResource("3_deco_top")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=131187524]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="VolumeLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=916953664]
+[node name="OptionsPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "Volumes:           "
+theme_type_variation = &"OptionsPanel"
 
-[node name="VolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1040964907]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Paramètres"
+horizontal_alignment = 1
+
+[node name="VolumeGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 28
+theme_override_constants/v_separation = 22
+columns = 3
+
+[node name="MasterVolumeLabel" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+layout_mode = 2
+text = "Général"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(420, 44)
 layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[node name="FullscreenCheck" type="CheckBox" parent="PanelContainer/VBoxContainer" unique_id=1841050227]
+[node name="MasterVolumeValue" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "100 %"
+horizontal_alignment = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+layout_mode = 2
+text = "Musique"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 44)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolumeValue" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "100 %"
+horizontal_alignment = 2
+
+[node name="SfxVolumeLabel" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+layout_mode = 2
+text = "Effets"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(420, 44)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxVolumeValue" type="Label" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer/VolumeGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+text = "100 %"
+horizontal_alignment = 2
+
+[node name="FullscreenCheck" type="CheckBox" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Plein"
+text = "Plein écran"
 
-[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=107845151]
+[node name="BackButton" parent="PanelContainer/VBoxContainer/CenterContainer/OptionsPanel/VBoxContainer" instance=ExtResource("5_bouton")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Retour"
+size_flags_horizontal = 4
+button_title = "Retour"
+
+[node name="DecorationBot" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_deco_bot")

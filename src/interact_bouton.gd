@@ -8,29 +8,22 @@ var btn_state = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	up_btn.show()
-	down_btn.hide()
-	
+	_set_button_state(true)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
-	if btn_state : 
-		down_btn.hide()
-		up_btn.show()
-	else:
-		up_btn.hide()
-		down_btn.show()
+func _set_button_state(is_up : bool) -> void:
+	btn_state = is_up
+	up_btn.visible = is_up
+	down_btn.visible = not is_up
 
 
 func _on_btn_up_area_area_entered(area: Area2D) -> void:
 	var elem_contact = area.get_parent()
 	if elem_contact is Player: 
 		level_door.open_door.emit()
-		btn_state = false
+		_set_button_state(false)
 
 
 func _on_btn_down_area_area_entered(area: Area2D) -> void:
 	var elem_contact = area.get_parent()
 	if elem_contact is Player: 
-		btn_state = false 
+		_set_button_state(false)

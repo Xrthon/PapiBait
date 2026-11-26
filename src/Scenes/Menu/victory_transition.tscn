@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://tqtnyivpsrt3"]
+
+[ext_resource type="Script" uid="uid://cjhw5d6c7s446" path="res://Scripts/Menu/victory_transition.gd" id="1_victory"]
+[ext_resource type="Shader" uid="uid://dre33stcnhasj" path="res://Ressources/Shaders/victory_iris.gdshader" id="2_victory_shader"]
+[ext_resource type="Theme" uid="uid://df3ekchqeb7i3" path="res://Ressources/options_theme.tres" id="3_theme"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_victory"]
+shader = ExtResource("2_victory_shader")
+shader_parameter/progress = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/aspect_ratio = 1.777
+shader_parameter/glow_color = Color(1, 0.82, 0.36, 1)
+shader_parameter/cover_color = Color(0.09, 0.05, 0.02, 1)
+shader_parameter/ray_count = 14.0
+shader_parameter/ray_speed = 1.5
+
+[node name="VictoryTransition" type="Control" unique_id=1958990961]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_theme")
+script = ExtResource("1_victory")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1076025859]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_victory")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Message" type="VBoxContainer" parent="." unique_id=1924130402]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -100.0
+offset_right = 400.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Label" parent="Message" unique_id=510461889]
+layout_mode = 2
+theme_type_variation = &"VictoryLabel"
+text = "Niveau terminé !"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="Message" unique_id=1915901640]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00.00   ·   0 mort"
+horizontal_alignment = 1

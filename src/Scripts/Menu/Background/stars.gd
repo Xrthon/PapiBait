@@ -17,7 +17,7 @@ func generate_stars() -> void:
 		push_warning("star_scene n'est pas assignée dans Stars.")
 		return
 	
-	for i in range(star_count):
+	for _star_index in range(star_count):
 		var star_instance = star_scene.instantiate()
 		
 		if star_instance == null:

@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://cw4mrafioo3u8"]
 
 [ext_resource type="Script" uid="uid://dwyxvjobb7o67" path="res://Scripts/Manager/sound_manager.gd" id="1_25tnw"]
-[ext_resource type="AudioStream" uid="uid://wn61fnmknv6b" path="res://Sounds/Musics/511198__theojt__egypt-music.mp3" id="2_2smo5"]
+[ext_resource type="AudioStream" path="res://Sounds/Musics/Level/level_egypt_detective.ogg" id="2_level_music"]
+[ext_resource type="AudioStream" uid="uid://wn61fnmknv6b" path="res://Sounds/Musics/Menu/511198__theojt__egypt-music.mp3" id="3_menu_music"]
 
 [node name="SoundManager" type="Node" unique_id=747248629]
+process_mode = 3
 script = ExtResource("1_25tnw")
+level_music = ExtResource("2_level_music")
+menu_music = ExtResource("3_menu_music")
 
-[node name="LevelBackground" type="AudioStreamPlayer2D" parent="." unique_id=332538431]
-stream = ExtResource("2_2smo5")
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1180657040]
+
+[node name="UiPlayer" type="AudioStreamPlayer" parent="." unique_id=268497809]
